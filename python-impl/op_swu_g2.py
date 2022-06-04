@@ -27,7 +27,7 @@ def sgn0(x: Fq2) -> int:
     # https://tools.ietf.org/html/draft-irtf-cfrg-hash-to-curve-07#section-4.1
 
     sign_0: int = x[0].value % 2
-    zero_0: bool = x[0] == 0
+    zero_0: bool = x[0].value == 0
     sign_1: int = x[1].value % 2
     return sign_0 or (zero_0 and sign_1)
 
