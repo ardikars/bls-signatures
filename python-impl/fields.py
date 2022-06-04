@@ -287,7 +287,10 @@ class FieldExtBase(tuple):
                     for i in range(1, self.embedding):
                         if self[i] != (type(self.root).zero(self.Q)):
                             return False
-                    return self[0] == other
+                    if isinstance(self[0], Fq) and isinstance(other, int):
+                        return self[0].value == other
+                    else:
+                        return self[0] == other
                 return NotImplemented
             return NotImplemented
         else:
